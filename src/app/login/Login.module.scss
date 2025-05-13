@@ -1,0 +1,50 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .logo {
+    h1 {
+      color: $primary;
+      letter-spacing: 2px;
+    }
+  }
+
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(24);
+    margin-top: toRem(40);
+    max-width: 400px;
+    width: 100%;
+
+    .inputGroup {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      label {
+        font-size: toRem(14);
+        font-weight: 500;
+        letter-spacing: .4px;
+      }
+    }
+  }
+
+  .createAccountBtn {
+    font-weight: 500;
+    color: $primary;
+    margin-top: 40px;
+    transition: .3s;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &:visited {
+      color: $primary;
+    }
+  }
+}

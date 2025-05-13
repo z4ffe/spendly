@@ -1,0 +1,11 @@
+.sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  background-color: $black;
+  padding: toRem(48) toRem(28);
+
+  .divider {
+    margin: toRem(40) 0;
+  }
+}

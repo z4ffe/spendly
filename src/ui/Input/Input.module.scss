@@ -1,0 +1,22 @@
+.input {
+  background-color: transparent;
+  border: 1px solid $grey03;
+  border-radius: $radius-default;
+  width: 100%;
+  height: toRem(48);
+  padding-left: 20px;
+  font-size: toRem(18);
+  outline: 1px solid transparent;
+  transition: .3s;
+
+  &:focus {
+    outline: 1px solid $grey01;
+    box-shadow: 0 5px 10px #b0b0b0;
+  }
+
+  &:-webkit-autofill {
+    background-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #000 !important;
+  }
+}

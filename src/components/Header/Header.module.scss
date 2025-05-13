@@ -1,0 +1,7 @@
+.header {
+  grid-area: header;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  max-height: toRem(88);
+}

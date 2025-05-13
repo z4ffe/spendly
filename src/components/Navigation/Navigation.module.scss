@@ -1,0 +1,22 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: toRem(40);
+
+  .navigation__link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    gap: 12px;
+    color: $white;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: toRem(16) toRem(12);
+  }
+
+  .navigation__link-active {
+    background-color: $green;
+  }
+}

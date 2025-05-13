@@ -1,0 +1,60 @@
+$desktop: 992px; // 992px
+$tablet: 768px; // 768px
+$phablet: 425px; // 425px
+$phone: 320px; // 320px
+
+
+@mixin forTablet() {
+  @media screen and (max-width: $desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin forPhablet() {
+  @media screen and (max-width: $tablet - 1px) {
+    @content;
+  }
+}
+
+@mixin forPhone() {
+  @media screen and (max-width: $phablet - 1px) {
+    @content;
+  }
+}
+
+@mixin for1200() {
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin for1400() {
+  @media screen and (max-width: 1399px) {
+    @content;
+  }
+}
+
+@mixin atBreakpoint($value) {
+  @media screen and (max-width: $value + px) {
+    @content;
+  }
+}
+
+@mixin atBreakpointRange($value, $value2) {
+  @media screen and (min-width: #{$value}px) and (max-width: #{$value2}px) {
+    @content;
+  }
+}
+
+// container
+
+.container {
+  margin: 0 auto;
+  max-width: calc(1650px + 40px); // 1650 - 40
+  width: 100%;
+  padding: toRem(0) toRem(40);
+
+  @include forPhablet {
+    padding: toRem(0) toRem(15);
+  }
+}

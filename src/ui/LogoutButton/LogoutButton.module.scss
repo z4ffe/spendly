@@ -1,0 +1,22 @@
+.logoutbutton {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 16px;
+  width: 100%;
+  height: toRem(48);
+  background-color: $grey01;
+  border: none;
+  border-radius: 4px;
+  font-size: toRem(18);
+  color: $white;
+  opacity: .8;
+  margin-top: toRem(150);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity .3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}

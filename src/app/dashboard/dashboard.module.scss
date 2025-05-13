@@ -1,0 +1,6 @@
+.dashboard {
+  grid-area: dashboard;
+  display: flex;
+  flex-direction: column;
+  padding: toRem(16) toRem(24);
+}

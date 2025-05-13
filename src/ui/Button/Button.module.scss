@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: toRem(16);
+  font-weight: 500;
+  color: $white;
+  background-color: $primary;
+  border: none;
+  border-radius: $radius-default;
+  min-height: toRem(48);
+  transition: .3s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &:active {
+    transform: scale(99%);
+  }
+}
