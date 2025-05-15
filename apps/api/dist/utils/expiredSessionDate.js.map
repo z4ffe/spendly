@@ -1,0 +1,1 @@
+{"version":3,"file":"expiredSessionDate.js","sourceRoot":"","sources":["../../src/utils/expiredSessionDate.ts"],"names":[],"mappings":";;;AAAO,MAAM,kBAAkB,GAAG,CAAC,IAAY,EAAE,EAAE;IAClD,MAAM,WAAW,GAAG,IAAI,IAAI,EAAE,CAAA;IAC9B,WAAW,CAAC,OAAO,CAAC,WAAW,CAAC,OAAO,EAAE,GAAG,IAAI,CAAC,CAAA;IACjD,OAAO,WAAW,CAAA;AACnB,CAAC,CAAA;AAJY,QAAA,kBAAkB,sBAI9B"}
