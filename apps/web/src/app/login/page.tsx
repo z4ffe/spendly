@@ -1,4 +1,3 @@
-import actions from '@/actions'
 import Button from '@/ui/Button/Button'
 import Input from '@/ui/Input/Input'
 import Logo from '@/ui/Logo/Logo'
@@ -9,7 +8,7 @@ import styles from './Login.module.scss'
 
 export default async function Page() {
 	const cookieStore = await cookies()
-	const session = cookieStore.get('session')
+	const session = cookieStore.get('sessionId')
 
 	if (session?.value) {
 		redirect('/dashboard')
@@ -18,7 +17,7 @@ export default async function Page() {
 	return (
 		<div className={styles.login}>
 			<Logo className={styles.logo} />
-			<form className={styles.loginForm} action={actions.login}>
+			<form className={styles.loginForm}>
 				<div className={styles.inputGroup}>
 					<label>Email Address</label>
 					<Input type='text' name='email' />

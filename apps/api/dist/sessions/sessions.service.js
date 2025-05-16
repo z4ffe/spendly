@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SessionsService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
+const bcrypt_1 = require("bcrypt");
 const typeorm_2 = require("typeorm");
 const users_service_1 = require("../users/users.service");
 const createSessionId_1 = require("../utils/createSessionId");
@@ -32,6 +33,10 @@ let SessionsService = class SessionsService {
         if (!user) {
             throw new common_1.NotFoundException('User not found');
         }
+        const passwordIsValid = await (0, bcrypt_1.compare)(body.password, user.password);
+        if (!passwordIsValid) {
+            throw new common_1.UnauthorizedException('Wrong email or password');
+        }
         const session = this.sessionRepository.create({
             sessionId: (0, createSessionId_1.createSessionId)(),
             expiredAt: (0, expiredSessionDate_1.expiredSessionDate)(30),
@@ -40,6 +45,39 @@ let SessionsService = class SessionsService {
             userAgent
         });
         return await this.sessionRepository.save(session);
+    }
+    async remove(sessionId) {
+        const session = await this.sessionRepository.findOneBy({ sessionId });
+        if (session)
+            await this.sessionRepository.remove(session);
+    }
+    async findUserIdBySessionId(sessionId) {
+        const session = await this.sessionRepository.findOne({
+            where: { sessionId },
+            relations: ['userId'],
+            select: {
+                userId: {
+                    email: true,
+                    firstName: true,
+                    lastName: true,
+                    createdAt: true
+                }
+            }
+        });
+        if (!session)
+            throw new common_1.NotFoundException();
+        return session.userId;
+    }
+    async validateSession(sessionId) {
+        const session = await this.sessionRepository.findOneBy({ sessionId });
+        if (!session)
+            return false;
+        const isExpired = new Date(session.expiredAt) < new Date();
+        if (isExpired) {
+            await this.sessionRepository.remove(session);
+            return false;
+        }
+        return true;
     }
 };
 exports.SessionsService = SessionsService;

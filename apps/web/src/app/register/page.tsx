@@ -1,19 +1,9 @@
-import actions from '@/actions'
-import {cookies} from 'next/headers'
 import Link from 'next/link'
-import {redirect} from 'next/navigation'
 
 const Pages = async () => {
-	const cookieStore = await cookies()
-	const session = cookieStore.get('session')
-
-	if (session?.value) {
-		redirect('/dashboard')
-	}
-
 	return (
 		<div>
-			<form action={actions.register}>
+			<form>
 				<h6>Registration</h6>
 				<label>email<input type='text' name='email' /></label>
 				<label>password<input type='password' name='password' /></label>

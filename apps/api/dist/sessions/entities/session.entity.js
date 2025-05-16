@@ -26,7 +26,7 @@ __decorate([
     __metadata("design:type", String)
 ], Session.prototype, "sessionId", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => users_entitiy_1.User, (user) => user.id, { eager: true }),
+    (0, typeorm_1.ManyToOne)(() => users_entitiy_1.User, (user) => user.id),
     (0, typeorm_1.JoinColumn)({ name: 'user_id' }),
     __metadata("design:type", users_entitiy_1.User)
 ], Session.prototype, "userId", void 0);

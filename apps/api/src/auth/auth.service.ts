@@ -10,4 +10,8 @@ export class AuthService {
 	async signIn(body: SignupDto, clientIp: string, userAgent: string) {
 		return await this.sessionsService.create(body, clientIp, userAgent)
 	}
+
+	async logout(sessionId) {
+		await this.sessionsService.remove(sessionId)
+	}
 }

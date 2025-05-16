@@ -1,9 +1,8 @@
-import {logout} from '@/actions/auth'
-import {getUserFromSession} from '@/app/dashboard/getUserFromSession'
 import styles from './UserCard.module.scss'
 
 const UserCard = async () => {
-	const user = await getUserFromSession()
+
+	const user = {firstName: 'asd', lastName: 'asd'}
 
 	return (
 		<div className={styles.userCard}>
@@ -12,7 +11,7 @@ const UserCard = async () => {
 				<div>{user?.firstName} {user?.lastName}</div>
 				<button>View Profile</button>
 			</div>
-			<button onClick={logout}>Logout</button>
+			<button>Logout</button>
 		</div>
 	)
 }

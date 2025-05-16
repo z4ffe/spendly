@@ -1,4 +1,3 @@
-import {logout} from '@/actions/auth'
 import styles from './LogoutButton.module.scss'
 
 const LogoutIcon = () => {
@@ -13,7 +12,7 @@ const LogoutIcon = () => {
 }
 
 const LogoutButton = () => {
-	return <button className={styles.logoutbutton} onClick={logout}>
+	return <button className={styles.logoutbutton}>
 		<LogoutIcon />
 		Logout
 	</button>

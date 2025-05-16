@@ -75,6 +75,15 @@ let UsersService = class UsersService {
     async findByEmail(email) {
         return await this.userRepository.findOneBy({ email });
     }
+    async getUserInfo(id) {
+        const user = await this.userRepository.findOne({
+            where: { id },
+            select: { email: true, firstName: true, lastName: true, createdAt: true }
+        });
+        if (!user)
+            throw new common_1.NotFoundException();
+        return user;
+    }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([

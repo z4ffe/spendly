@@ -6,7 +6,7 @@ export class Session {
 	@PrimaryColumn({name: 'session_id'})
 	sessionId: string
 
-	@ManyToOne(() => User, (user) => user.id, {eager: true})
+	@ManyToOne(() => User, (user) => user.id)
 	@JoinColumn({name: 'user_id'})
 	userId: User
 

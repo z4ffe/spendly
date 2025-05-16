@@ -20,6 +20,9 @@ let AuthService = class AuthService {
     async signIn(body, clientIp, userAgent) {
         return await this.sessionsService.create(body, clientIp, userAgent);
     }
+    async logout(sessionId) {
+        await this.sessionsService.remove(sessionId);
+    }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([
