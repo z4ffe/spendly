@@ -8,8 +8,16 @@ const nextConfig: NextConfig = {
 		prependData: `
       @import "_variables.scss";
       @import "_utils.scss";
-      @import "_breakpoints.scss";`,
+      @import "_breakpoints.scss";`
 	},
-};
+	async rewrites() {
+		return [
+			{
+				source: '/api/:path*',
+				destination: `${process.env.API_URI}/:path*`
+			}
+		]
+	}
+}
 
-export default nextConfig;
+export default nextConfig

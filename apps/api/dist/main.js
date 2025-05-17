@@ -13,7 +13,10 @@ async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, {
         bodyParser: true,
         rawBody: true,
-        cors: true
+        cors: {
+            credentials: true,
+            origin: 'http://localhost:3000'
+        }
     });
     app.setGlobalPrefix('api');
     app.useGlobalPipes(new common_1.ValidationPipe());

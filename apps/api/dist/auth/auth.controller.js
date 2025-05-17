@@ -29,9 +29,10 @@ let AuthController = class AuthController {
         this.sessionsService = sessionsService;
     }
     async signIn(body, clientIP, request, response) {
+        console.log(body);
         const userAgent = request.headers['user-agent'] || '';
         const session = await this.authService.signIn(body, clientIP, userAgent);
-        response.cookie('sessionId', session.sessionId, { httpOnly: true, expires: session.expiredAt, secure: false });
+        response.cookie('sessionId', session.sessionId, { httpOnly: true, expires: session.expiredAt, secure: false, sameSite: 'lax' });
     }
     async logout(request, response) {
         const sessionId = await request.cookies['sessionId'];
